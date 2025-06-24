@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "title": "First Entry",
+      "date": "2023-06-01",
+      "content": "This is my first journal entry. I'm excited to start this journal!"
+    },
+    {
+      "id": 2,
+      "title": "Beautiful Day",
+      "date": "2023-06-05",
+      "content": "The weather was perfect today. I went for a long walk in the park."
+    },
+    {
+      "id": 3,
+      "title": "Learning JavaScript",
+      "date": "2023-06-10",
+      "content": "Spent the day practicing JavaScript. I'm getting better at it!"
+    },
+    {
+      "id": 4,
+      "title": "Weekend Plans",
+      "date": "2023-06-15",
+      "content": "Making plans for the weekend. Maybe I'll visit my friends."
+    },
+    {
+      "id": 5,
+      "title": "Rainy Day",
+      "date": "2023-06-20",
+      "content": "It rained all day. Stayed inside and read a book."
+    }
+  ]
+}
