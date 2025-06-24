@@ -7,6 +7,41 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <h1>My Journal</h1>
+        <button id="theme-btn">Dark Mode</button>
+    </header>
+    <div class="controls">
+        <button id="add-btn">Add New Entry</button>
+        <input type="text" id="search-input" placeholder="Search entries...">
+    </div>
+
+    <div class="form-container" id="form-container">
+       <h2>New Journal Entry</h2>
+       <form id="entry-form">
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="date" required>
+        </div>
+
+        <div class="form-group">
+            <label>Content</label>
+            <textarea id="content" required></textarea>
+        </div>
+
+        <div class="form-buttons">
+                <button type="button" id="cancel-btn">Cancel</button>
+                <button type="submit" id="save-btn">Save</button>
+            </div>
+       </form>
+
+    </div>
+
+    <div class="entries" id="entries">
+        <p>Loading your journal entries...</p>
+    </div>
+
+    <script src="src/index.js"></script>
     
 </body>
 </html>
