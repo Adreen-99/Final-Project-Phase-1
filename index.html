@@ -4,13 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>My Journal</h1>
+        <h1>Adreen's Journal App</h1>
         <button id="theme-btn">Dark Mode</button>
+        <button id="profile-btn">My Profile</button>
     </header>
+
+    <p>
+        Welcome to your personal journal app! Here you can add, view, and manage your journal entries. 
+        Click "Add New Entry" to get started, or use the search bar to find specific entries. 
+        Enjoy writing!
+    </p>
+    <p>
+        As Humans we have a natural tendency to write down our thoughts and experiences. 
+        This journal app is designed to help you capture those moments, reflect on your day, and
+        keep a record of your life.
+    </p>
+    <p>
+        <strong>Note:</strong> Your entries are stored locally in your browser, so they
+        will not be accessible from other devices or browsers. Make sure to back up your entries if
+        you want to keep them safe. You can do this by exporting your entries to a file
+        or copying them to another location.
+    </p>
+    <p>
+        <strong>Privacy:</strong> Your journal entries are private and not shared with anyone.
+        This app does not collect any personal data or share your entries with third parties.
+        You can write freely without worrying about privacy concerns.
+    </p>
+    <p>
+        <strong>Features: </strong>
+        <ul>
+            <li>Add new journal entries with a date and content.</li>
+            <li>View all your entries in a list.</li>
+            <li>Search for specific entries by keywords.</li>
+            <li>Dark mode for comfortable reading at night.</li>
+            <li>Simple and user-friendly interface.</li>
+            <li>Option to cancel or save entries.</li>
+        </ul>   
+    </p>
+<div id="profile-card" class="card hidden">
+    <form id="profile-form">
+      <h3>Profile Info</h3>
+      
+      <label for="profile-name">Name:</label>
+      <input type="text" id="profile-name" value="John Doe">
+
+      <label for="profile-email">Email:</label>
+      <input type="email" id="profile-email" value="john@example.com">
+        <br>
+      <button type="submit" id="save-profile-btn">Save</button>
+    </form>
+  </div>
+    <br>
     <div class="controls">
         <button id="add-btn">Add New Entry</button>
         <input type="text" id="search-input" placeholder="Search entries...">
@@ -40,8 +89,30 @@
     <div class="entries" id="entries">
         <p>Loading your journal entries...</p>
     </div>
-
-    <script src="src/index.js"></script>
     
+    <div class="entry-details" id="entry-details">
+    Full diary content will be shown here 
+     </div>
+
+   <footer id="footer">
+  <p>&copy; 2025 My Journal App</p>
+  <p>Built with ❤️ by Adreen — your private space to write and reflect.</p>
+  <p>For Any Further Information Contact Me On:
+    <br>Email: <a href="https://mail.google.com/mail/u/0/#inbox">githinjiadreen27@gmail.com</a>
+  </p>
+  <div class="social-links">
+    <a href="https://github.com/Adreen-99"target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.instagram.com/_only.adreen/" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+  <button id="back-to-top">Back to Top ↑</button>
+</footer>
+
+
+<script src="src/index.js"></script>
+        
 </body>
 </html>
