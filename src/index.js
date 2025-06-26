@@ -1,13 +1,35 @@
 // DOM elements
+const profileBtn = document.getElementById('profile-btn');
+const profileCard = document.getElementById('profile-card');
+const profileForm = document.getElementById('profile-form');
 const themeBtn = document.getElementById('theme-btn');
 const addBtn = document.getElementById('add-btn');
-const searchInput = document.getElementById('search');
+const searchInput = document.getElementById('search-input');
 const formContainer = document.getElementById('form-container');
 const entryForm = document.getElementById('entry-form');
 const entriesContainer = document.getElementById('entries');
 const titleInput = document.getElementById('title');
 const dateInput = document.getElementById('date');
 const contentInput = document.getElementById('content');
+
+// Show the card when the button is clicked
+    profileBtn.addEventListener('click', () => {
+      profileCard.classList.remove('hidden');
+    });
+
+    // Handle form submission
+    profileForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // Prevent page reload
+
+      let name = document.getElementById('profile-name').value;
+      let email = document.getElementById('profile-email').value;
+
+      // Saving 
+      alert("Profile Saved:\nName: " + name + "\nEmail: " + email);
+
+      // Hide the card
+      profileCard.classList.add('hidden');
+    });
 
 // Store entries
 let entries = [];
@@ -71,40 +93,52 @@ function loadEntries() {
 }
 
 // Display entries on page
-function displayEntries(entriesToShow) {
-    entriesToShow = entriesToShow || entries;
-    
+
+function displayEntries(entriesToShow = entries) {
+    entriesContainer.innerHTML = '';
+
     if (entriesToShow.length === 0) {
         entriesContainer.innerHTML = '<p>No entries found.</p>';
         return;
     }
 
-    let entriesHTML = '';
     entriesToShow.forEach(entry => {
-        entriesHTML += `
-            <div class="entry-card">
-                <h3>${entry.title}</h3>
-                <div class="entry-date">${formatDate(entry.date)}</div>
-                <p>${entry.content}</p>
-                <div class="entry-actions">
-                    <button class="edit-btn" data-id="${entry.id}">Edit</button>
-                    <button class="delete-btn" data-id="${entry.id}">Delete</button>
-                </div>
+        const card = document.createElement('div');
+        card.classList.add('entry-card');
+        card.innerHTML = `
+            <h3>${entry.title}</h3>
+            <div class="entry-date">${formatDate(entry.date)}</div>
+            <p>${entry.content.slice(0, 80)}...</p>
+            <div class="entry-actions">
+                <button class="view-btn" data-id="${entry.id}">View</button>
+                <button class="edit-btn" data-id="${entry.id}">Edit</button>
+                <button class="delete-btn" data-id="${entry.id}">Delete</button>
             </div>
         `;
-    });
 
-    entriesContainer.innerHTML = entriesHTML;
+        // Add event listeners
+        card.querySelector('.view-btn').addEventListener('click', () => showEntryDetails(entry));
+        card.querySelector('.edit-btn').addEventListener('click', () => editEntry(entry.id));
+        card.querySelector('.delete-btn').addEventListener('click', () => deleteEntry(entry.id));
 
-    // Add event listeners to buttons
-    document.querySelectorAll('.edit-btn').forEach(btn => {
-        btn.addEventListener('click', () => editEntry(btn.dataset.id));
-    });
-
-    document.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', () => deleteEntry(btn.dataset.id));
+        entriesContainer.appendChild(card);
     });
 }
+
+function showEntryDetails(entry) {
+    const detailsContainer = document.getElementById('entry-details');
+    detailsContainer.innerHTML = `
+        <div class="entry-full">
+            <h2>${entry.title}</h2>
+            <p class="entry-date">${formatDate(entry.date)}</p>
+            <p>${entry.content}</p>
+        </div>
+    `;
+      // Optionally scroll to the details
+    detailsContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+    
 
 // Format date
 function formatDate(dateString) {
@@ -148,7 +182,6 @@ function editEntry(id) {
     const entry = entries.find(entry => entry.id == id);
     if (!entry) return;
     
-    titleInput.value = entry.title;
     dateInput.value = entry.date;
     contentInput.value = entry.content;
     formContainer.style.display = 'block';
@@ -158,7 +191,6 @@ function editEntry(id) {
         e.preventDefault();
         
         const updatedEntry = {
-            title: titleInput.value,
             date: dateInput.value,
             content: contentInput.value
         };
@@ -202,3 +234,7 @@ function deleteEntry(id) {
         alert('Could not delete the entry. Please try again.');
     });
 }
+// Back to Top Button
+document.getElementById('back-to-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
