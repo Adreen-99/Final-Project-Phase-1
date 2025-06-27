@@ -80,7 +80,7 @@ function searchEntries() {
 
 // Load entries from server
 function loadEntries() {
-    fetch('http://localhost:3000/entries')
+    fetch('https://first-project-data.onrender.com/entries')
         .then(response => response.json())
         .then(data => {
             entries = data;
@@ -156,7 +156,7 @@ function saveEntry(event) {
         content: contentInput.value
     };
 
-    fetch('http://localhost:3000/entries', {
+    fetch('https://first-project-data.onrender.com/entries', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -195,7 +195,7 @@ function editEntry(id) {
             content: contentInput.value
         };
 
-        fetch(`http://localhost:3000/entries/${id}`, {
+        fetch(`https://first-project-data.onrender.com/entries/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -220,7 +220,7 @@ function editEntry(id) {
 function deleteEntry(id) {
     if (!confirm('Are you sure you want to delete this entry?')) return;
     
-    fetch(`http://localhost:3000/entries/${id}`, {
+    fetch(`https://first-project-data.onrender.com/entries/${id}`, {
         method: 'DELETE'
     })
     .then(() => {
