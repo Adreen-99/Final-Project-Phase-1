@@ -51,7 +51,7 @@ Terminal/Command Line
 # Backend API
 Repository: https://github.com/Adreen-99/Final-Project-Phase-1
 
-Deployed API: .........................................
+Deployed API: https://adreen-99.github.io/Final-Project-Phase-1/
 
 # Technical Details
 Built with:
@@ -62,33 +62,54 @@ CSS3
 
 JavaScript(ES6)
 
-# Installation Process
-Clone this repository using:
+# Installation / Local Setup
 
+To run locally:
+
+bash
+
+Copy
+
+Edit
+
+# 1. Clone the repo
 git clone git@github.com:Adreen-99/Final-Project-Phase-1.git
 
-or by downloading a ZIP file of the code.
+# 2. Navigate into the directory
+cd Final-Project-Phase-1
 
-Navigate to the project directory:
-
-cd Final-Project
-Install the required dependencies:
-
+# 3. Install dependencies (if any; may not be needed)
 npm install
-Run the development server:
 
-npm run 
-Open your browser and visit  http://localhost:3000
+# 4. Start a local server
+npm run dev  # or open index.html in your browser
+
+Then visit http://localhost:3000 (or whichever port your local
+server uses) to access the app.
 
 
+# Contributing
 
+Contributions, issues, and feature requests are welcome!
+
+1. Fork this repository.
+
+2. Create a feature branch (git checkout -b feature/YourFeature).
+
+3. Commit your changes (git commit -m "Add feature").
+
+4. Push to the branch (git push origin feature/YourFeature).
+
+5. Open a Pull Request.
 
 # Contact
+
 For questions or feedback:
 
 Email: githinjiadreen27@gmail.com
 
 # License
+
 MIT License
 
 Copyright (c) 2025 Adreen Nyawira G.
