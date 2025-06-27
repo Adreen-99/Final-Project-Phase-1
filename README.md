@@ -73,7 +73,9 @@ Copy
 Edit
 
 # 1. Clone the repo
-git clone git@github.com:Adreen-99/Final-Project-Phase-1.git
+git clone  git@github.com:
+
+Adreen-99/Final-Project-Phase-1.git
 
 # 2. Navigate into the directory
 cd Final-Project-Phase-1
