@@ -3,6 +3,7 @@ const profileBtn = document.getElementById('profile-btn');
 const profileCard = document.getElementById('profile-card');
 const profileForm = document.getElementById('profile-form');
 const themeBtn = document.getElementById('theme-btn');
+const saveBtn = document.getElementById('save-btn');
 const addBtn = document.getElementById('add-btn');
 const searchInput = document.getElementById('search-input');
 const formContainer = document.getElementById('form-container');
@@ -147,16 +148,17 @@ function formatDate(dateString) {
 }
 
 // Save new entry
+
 function saveEntry(event) {
     event.preventDefault();
-    
+
     const newEntry = {
         title: titleInput.value,
         date: dateInput.value,
         content: contentInput.value
     };
 
-    fetch('https://first-project-data.onrender.com/entries', {
+    fetch(`https://first-project-data.onrender.com/entries ${id} `,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -167,8 +169,24 @@ function saveEntry(event) {
     .then(data => {
         // Add new entry to our array
         entries.push(data);
-        // Refresh the display with all entries including the new one
+
+        // Display the new entry in the entry-details div
+        const entryDetails = document.getElementById('entry-details');
+        entryDetails.innerHTML = `
+            <h3>${data.title}</h3>
+            <small>${data.date}</small>
+            <p>${data.content}</p>
+        `;
+
+        // Optionally clear form fields
+        titleInput.value = '';
+        dateInput.value = '';
+        contentInput.value = '';
+
+        // Refresh full entry list
         displayEntries();
+
+        // Optionally hide the form
         hideForm();
     })
     .catch(error => {
